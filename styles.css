@@ -1,0 +1,27 @@
+/* Fontit */
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Värit */
+body {
+    color: #333; /* Musta teksti */
+    background-color: #f0f0f0; /* Vaalea taustaväri */
+}
+
+a {
+    color: #ff0000; /* Sininen linkkien väri */
+}
+
+/* Padding/Margin */
+.container {
+    padding: 20px; /* Lisää sisätilaa kontainerille */
+}
+
+.box {
+    margin: 10px; /* Lisää marginaalia laatikoille */
+}
