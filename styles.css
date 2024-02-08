@@ -10,11 +10,11 @@ h1, h2, h3 {
 /* Värit */
 body {
     color: #333; /* Musta teksti */
-    background-color: #f0f0f0; /* Vaalea taustaväri */
+    background-color: #f5f5f5; /* Vaalea taustaväri */
 }
 
 a {
-    color: #ff0000; /* Sininen linkkien väri */
+    color: #007bff; /* Sininen linkkien väri */
 }
 
 /* Padding/Margin */
