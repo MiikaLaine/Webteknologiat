@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mediaelementin Sisältö</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script defer src="js/script.js"></script>
+    <style>
+        #media-container {
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        #media-element {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="media-container">
+        <img id="media-element" src="JSON/mediaContent.json" alt="Mediaelement">
+    </div>
+    <button id="previous-btn">Previous</button>
+    <button id="play-btn">Play</button>
+    <button id="next-btn">Next</button>
+
+
+
+</body>
+
+</html>
