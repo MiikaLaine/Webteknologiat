@@ -1,0 +1,36 @@
+/* CSS Grid -listanäkymä */
+#media-container.list-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    /* Viisi saraketta */
+    grid-gap: 10px;
+    /* Väli */
+}
+
+/* CSS Grid -gridinäkymä */
+#media-container.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* Kolme saraketta */
+    grid-gap: 10px;
+    /* Väli */
+}
+
+/* Yksittäisen median tyyli */
+.media-item {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+}
+
+/* Div-elementin muotoilu grid-näkymälle */
+.grid-container {
+    background-color: lightblue;
+    padding: 10px;
+}
+
+/* Div-elementin muotoilu listanäkymälle */
+.list-container {
+    background-color: lightgreen;
+    padding: 10px;
+}
