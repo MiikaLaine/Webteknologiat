@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Haku</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        .loading {
+            display: none;
+        }
+
+        .loading.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1>API Haku</h1>
+        <button id="fetchDataBtn" class="btn btn-primary mt-3">Hae tietoa</button>
+        <img id="loadingAnimation" src="loading.gif" alt="Ladataan..." class="loading mt-3" width="50px">
+        <div id="accordion" class="mt-3">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                            aria-expanded="true" aria-controls="collapseOne">
+                            Näytä data
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body" id="dataContainer">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p>Laskuri: <span id="counter">0</span></p>
+    </div>
+
+    <script>
+        let counter = 0;
+
+        function updateCounter() {
+            counter++;
+            $('#counter').text(counter);
+        }
+
+        document.getElementById('fetchDataBtn').addEventListener('click', function () {
+            // Näytä latausanimatio
+            $('#loadingAnimation').addClass('active');
+
+            // Tee HTTP-pyyntö
+            fetch('http://numbersapi.com/random/trivia')
+                .then(response => response.text())
+                .then(data => {
+                    // Piilota latausanimatio
+                    $('#loadingAnimation').removeClass('active');
+
+                    // Päivitä laskuri
+                    updateCounter();
+
+                    // Näytä data
+                    $('#dataContainer').html(data);
+                })
+                .catch(error => console.error('Virhe:', error));
+        });
+    </script>
+</body>
+
+</html>
