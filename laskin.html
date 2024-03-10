@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Laskin</title>
+
+  <style>
+    .calculator {
+      margin: 30px;
+      padding: 40px;
+      border: 1px solid #f70505;
+      border-radius: 5px;
+      width: 400px;
+    }
+
+    input[type="number"] {
+      width: 75px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+
+<body>
+
+  <h1>Valitse numerot ja laske</h1>
+  <div class="calculator">
+    <label for="numberA">Numero 1:</label>
+    <input type="number" id="numberA" min="1" max="10" value="">
+    <button onclick="decrementNumber('numberA')">-</button>
+    <button onclick="incrementNumber('numberA')">+</button>
+    <br><br>
+    <label for="numberB">Numero 2:</label>
+    <input type="number" id="numberB" min="1" max="10" value="">
+    <button onclick="decrementNumber('numberB')">-</button>
+    <button onclick="incrementNumber('numberB')">+</button>
+    <br><br>
+    <label for="operator">Operaattori:</label>
+    <select id="operator">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+    </select>
+
+    <br><br>
+    <button onclick="calculate()">Laske</button>
+  </div>
+
+  <script>
+    function getRandomNumber() {
+      return Math.floor(Math.random() * 10) + 1;
+    }
+
+    document.getElementById('numberA').value = getRandomNumber();
+    document.getElementById('numberB').value = getRandomNumber();
+
+    function incrementNumber(id) {
+      var input = document.getElementById(id);
+      if (parseInt(input.value) < 10) {
+        input.value = parseInt(input.value) + 1;
+      }
+    }
+
+    function decrementNumber(id) {
+      var input = document.getElementById(id);
+      if (parseInt(input.value) > 1) {
+        input.value = parseInt(input.value) - 1;
+      }
+    }
+
+    function calculate() {
+      var numberA = parseInt(document.getElementById('numberA').value);
+      var numberB = parseInt(document.getElementById('numberB').value);
+      var operator = document.getElementById('operator').value;
+      var result;
+
+      switch (operator) {
+        case '+':
+          result = numberA + numberB;
+          break;
+        case '-':
+          result = numberA - numberB;
+          break;
+        case '*':
+          result = numberA * numberB;
+          break;
+        case '/':
+          result = numberA / numberB;
+          break;
+      }
+
+      alert("Tulos: " + result);
+    }
+  </script>
+
+</body>
+
+</html>
